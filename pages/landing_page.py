@@ -15,7 +15,7 @@ class LandingPage:
         self.duplicated_email_error = page.get_by_text("já está registrado")
 
     def visit(self):
-        self.page.goto("/")
+        self.page.goto("http://localhost:3000")
 
     def open_lead_form_button(self):
         self.lead_form.click()
