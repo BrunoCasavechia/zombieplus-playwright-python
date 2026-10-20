@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Pytest
+.pytest_cache/
+
+# Playwright / reports
+test-results/
+report.html
+assets/
+
+# Env and editor
+.env
+.vscode/
+.idea/
