@@ -1,5 +1,8 @@
 from pages.login_page import LoginPage
 from playwright.sync_api import Page, expect
+from faker import Faker
+
+fake = Faker('pt_br')
 
 email = 'admin@zombieplus.com'
 pwd = 'pwd123'
@@ -9,6 +12,17 @@ def test_login_success(page):
 
     login.visit()
     login.submit(email, pwd)
+
+def test_unregistered_user(page):
+    email_fake = fake.email()
+    pwd_fake = fake.password()
+     
+    login = LoginPage(page)
+    
+    login.visit()
+    login.submit(email_fake, pwd_fake)
+
+    expect(login.login_error).to_be_visible()
 
 
 def test_blank_email(page):
@@ -44,7 +58,7 @@ def test_pwd_invalid(page):
     login.visit()
     login.submit(email, 'invalidpwd')
 
-    expect(login.pwd_error).to_be_visible()
+    expect(login.login_error).to_be_visible()
 
 
 

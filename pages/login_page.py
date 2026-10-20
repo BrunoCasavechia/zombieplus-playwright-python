@@ -7,7 +7,7 @@ class LoginPage():
         self.pwd_input = page.locator('.login-form').get_by_placeholder('Senha')
         self.submit_button = page.get_by_role('button', name='Entrar')
         self.email_error = page.get_by_text('Email incorreto')
-        self.pwd_error = page.get_by_text('Ocorreu um erro ao tentar efetuar o login')
+        self.login_error = page.get_by_text('Ocorreu um erro ao tentar efetuar o login')
         self.blank_email_field_error = page.locator(".email-alert").get_by_text("Campo obrigatório")
         self.blank_pwd_field_error = page.locator(".password-alert").get_by_text("Campo obrigatório")
 
